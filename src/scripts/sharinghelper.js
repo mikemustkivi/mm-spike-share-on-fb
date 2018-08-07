@@ -28,7 +28,7 @@ var SharingHelper = {
     FB.ui(sharedData,
       // callback
       function(response) {
-        console.log('posting response:', reponse);
+        console.log('posting response:', JSON.stringify(response));
         if (response && !response.error_message) {
           alert('Posting completed.');
         } else {
