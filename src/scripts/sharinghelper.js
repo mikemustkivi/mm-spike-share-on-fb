@@ -18,8 +18,7 @@ var SharingHelper = {
       "name": "Koerte saar",
       "caption": "Testimise video pealkiri",
       "description": "“Koerte saar” on lugu 12-aastasest Atari Kobayashist, kelle eestkostjaks on korrumpeerunud meer Kobayashi. Kui linnapea dekreediga küüditatakse kõik Megasaki City koerad tohutule prügimäele, kihutab Atari oma Junior-Turbo propellerlennukiga Prügisaarele, et päästa oma neljajalgne ihukaitsja Täpi. Koos uute krantsidest sõpradega asub Atari eepilisele teekonnale, millega määratakse terve Prefektuuri tulevik.",
-      "picture": Config.hostUrl + "/images/9fd2e62c-981c-4ec9-a2ed-7a52a39ada8a-poster.png",
-      "version": "v2.8"
+      "picture": Config.hostUrl + "/images/9fd2e62c-981c-4ec9-a2ed-7a52a39ada8a-poster.png"
     };
 
     setTimeout(function () {

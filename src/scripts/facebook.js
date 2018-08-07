@@ -11,7 +11,7 @@ var Facebook = {
         appId: Config.facebookKey,
         cookie: true,
         xfbml: true,
-        version: 'v2.8',
+        version: 'v3.1',
         oauth: true
       });
     };
