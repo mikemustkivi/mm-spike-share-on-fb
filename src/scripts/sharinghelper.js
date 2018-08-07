@@ -13,6 +13,34 @@ var SharingHelper = {
     var sharedData;
     console.log('share on facebook');
     sharedData = {
+      "method": "share_open_graph",
+      "action_type": 'og.likes',
+      "action_properties": JSON.stringify({
+        object: Config.hostUrl + "/html/koerte_saar.html",
+        image: Config.hostUrl + "/images/9fd2e62c-981c-4ec9-a2ed-7a52a39ada8a-poster.png",
+        scrape: false
+      })
+    };
+
+    setTimeout(function () {
+      console.log('shareOnFacebook:', JSON.stringify(sharedData));
+    }, 1000);
+
+    FB.ui(sharedData,
+      function(response) {
+        console.log('posting response:', JSON.stringify(response));
+        if (response && !response.error_message) {
+          alert('Posting completed.');
+        } else {
+          alert('Error while posting.');
+        }
+    });
+  },
+  // nope
+  shareOnFacebookFeed: function (data) {
+    var sharedData;
+    console.log('share on facebook');
+    sharedData = {
       "method": "feed",
       "link": Config.hostUrl + "/html/koerte_saar.html",
       "name": "Koerte saar",
@@ -22,7 +50,7 @@ var SharingHelper = {
     };
 
     setTimeout(function () {
-      console.log('vodShareOnFacebook:', JSON.stringify(sharedData));
+      console.log('shareOnFacebook:', JSON.stringify(sharedData));
     }, 1000);
 
     FB.ui(sharedData,
@@ -34,6 +62,6 @@ var SharingHelper = {
         } else {
           alert('Error while posting.');
         }
-    });
+      });
   }
 };
