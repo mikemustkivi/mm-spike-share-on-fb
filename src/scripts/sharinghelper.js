@@ -14,7 +14,7 @@ var SharingHelper = {
     console.log('share on facebook');
     sharedData = {
       "method": "feed",
-      "link": Config.hostUrl + "/?movieId=1234"
+      "link": Config.hostUrl + "/movies/1234.html"
     };
 
     setTimeout(function () {
