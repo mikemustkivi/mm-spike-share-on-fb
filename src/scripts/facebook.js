@@ -4,6 +4,7 @@ var Facebook = {
     Facebook.connect();
   },
   registerAsyncInit: function () {
+    console.log('facebook registerAsyncInit');
     window.fbAsyncInit = function () {
       console.log('fbAsyncInit');
       FB.init({
@@ -16,6 +17,7 @@ var Facebook = {
     };
   },
   connect: function () {
+    console.log('facebook init sdk');
     (function(d, s, id){
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) {return;}
