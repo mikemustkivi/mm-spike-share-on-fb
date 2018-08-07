@@ -14,12 +14,7 @@ var SharingHelper = {
     console.log('share on facebook');
     sharedData = {
       "method": "feed",
-      "link": Config.hostUrl + "/html/koerte_saar.html",
-      "name": "Koerte saar",
-      "caption": "Testimise video pealkiri",
-      "source": 'https://www.youtube.com/watch?v=dt__kig8PVU',
-      "description": "Koerte saar on lugu 12-aastasest Atari Kobayashist",
-      "picture": Config.hostUrl + "/images/9fd2e62c-981c-4ec9-a2ed-7a52a39ada8a-poster.png"
+      "link": Config.hostUrl + "/?movieId=1234"
     };
 
     setTimeout(function () {
@@ -37,32 +32,28 @@ var SharingHelper = {
         }
       });
   },
-  // nope
-  shareOnFacebookLikes: function (data) {
-    var sharedData;
-    console.log('share on facebook');
-    sharedData = {
-      "method": "share_open_graph",
-      "action_type": 'og.likes',
-      "action_properties": JSON.stringify({
-        object: Config.hostUrl + "/html/koerte_saar.html",
-        image: Config.hostUrl + "/images/9fd2e62c-981c-4ec9-a2ed-7a52a39ada8a-poster.png",
-        scrape: false
-      })
-    };
-
-    setTimeout(function () {
-      console.log('shareOnFacebook:', JSON.stringify(sharedData));
-    }, 1000);
-
-    FB.ui(sharedData,
-      function(response) {
-        console.log('posting response:', JSON.stringify(response));
-        if (response && !response.error_message) {
-          alert('Posting completed.');
-        } else {
-          alert('Error while posting.');
-        }
-      });
+  appendHeadMetaTag: function (metaPropertyContent) {
+    $("head").append($('<meta>')
+      .attr('property', metaPropertyContent.property)
+      .attr('content', metaPropertyContent.content)
+    );
+  },
+  appendMovieMetaTags: function (movieId) {
+    console.log('Movies:',JSON.stringify(Movies));
+    Movies[movieId].forEach(function(meta) {
+      console.log('append to head meta:', JSON.stringify(meta));
+      SharingHelper.appendHeadMetaTag(meta);
+    });
+  },
+  getQueryVariable: function(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+      var pair = vars[i].split('=');
+      if (decodeURIComponent(pair[0]) == variable) {
+        return decodeURIComponent(pair[1]);
+      }
+    }
+    console.log('Query variable %s not found', variable);
   }
 };
