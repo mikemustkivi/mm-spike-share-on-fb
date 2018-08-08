@@ -1,10 +1,10 @@
 var Movies = {
   "1234": [{
     property: 'og:url',
-    content: Config.hostUrl +'/html/koerte_saar.html?movieId=1234'
+    content: Config.hostUrl +'/dev/html/koerte_saar.html?movieId=1234'
   }, {
     property: 'og:image',
-    content: Config.hostUrl + '/images/9fd2e62c-981c-4ec9-a2ed-7a52a39ada8a-poster.png'
+    content: Config.hostUrl + '/dev/images/9fd2e62c-981c-4ec9-a2ed-7a52a39ada8a-poster.png'
   }, {
     property: 'og:type',
     content: 'video.movie'
