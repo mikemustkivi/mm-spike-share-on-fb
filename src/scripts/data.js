@@ -5,6 +5,12 @@ var MoviesShareOpenGraph = {
   }, {
     property: 'og:image',
     content: Config.hostUrl + '/images/08a84ff4-06f9-48f6-9c75-41264a777188-poster.jpg'
+  }, {
+    property: 'og:image:width',
+    content: '240'
+  }, {
+    property: 'og:image:heigth',
+    content: '340'
   // }, {
   //   property: 'og:type',
   //   content: 'video.movie'
