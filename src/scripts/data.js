@@ -1,10 +1,10 @@
 var MoviesShareOpenGraph = {
   "midnight_in_paris": [{
     property: 'og:url',
-    content: Config.hostUrl +'/dev/shared_movie.html?movieName=midnight_in_paris'
+    content: Config.hostUrl +'/shared_movie.html?movieName=midnight_in_paris'
   }, {
     property: 'og:image',
-    content: Config.hostUrl + '/dev/images/08a84ff4-06f9-48f6-9c75-41264a777188-poster.jpg'
+    content: Config.hostUrl + '/images/08a84ff4-06f9-48f6-9c75-41264a777188-poster.jpg'
   // }, {
   //   property: 'og:type',
   //   content: 'video.movie'
