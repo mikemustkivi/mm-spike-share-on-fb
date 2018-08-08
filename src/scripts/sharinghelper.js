@@ -9,7 +9,7 @@ var SharingHelper = {
     e.preventDefault();
     SharingHelper.shareOnFacebook({});
   },
-  shareOnFacebook: function (event) {
+  shareOnFacebookFBUi: function (event) {
     var sharedData, openGraphObj, title = event.target.dataset.title;
     console.log('share on facebook');
     if (!title || !MoviesShareOpenGraph[title]) {
@@ -40,6 +40,40 @@ var SharingHelper = {
         }
       });
   },
+  shareOnFacebook: function (event) {
+    var sharedData, openGraphObj, title = event.target.dataset.title;
+    console.log('share on facebook');
+    // if (!title || !MoviesShareOpenGraph[title]) {
+    //   console.log('title not found, skipping fb sharing');
+    //   return;
+    // }
+    // openGraphObj = MoviesShareOpenGraph.convertToSharedObject(MoviesShareOpenGraph[title]);
+    // console.log('openGraphObj:', JSON.stringify(openGraphObj));
+    // sharedData = {
+    //   method: 'share_open_graph',
+    //   action_type: 'video.wants_to_watch',
+    //   action_properties: JSON.stringify({
+    //     object: openGraphObj
+    //   })
+    // };
+
+    FB.api(
+      "/me/video.wants_to_watch",
+      "POST",
+      {
+        "other": "https:\/\/www.youtube.com/watch?v=FAfR8omt-CY"
+      },
+      function (response) {
+        if (response && !response.error) {
+          /* handle the result */
+          alert('Posting completed.');
+        } else {
+          alert('Error while posting.');
+        }
+      }
+    );
+  },
+
   shareOnFacebookBasedOnHeadMetaOgTags: function (data) {
     var sharedData;
     console.log('share on facebook');
