@@ -15,6 +15,13 @@ var MoviesShareOpenGraph = {
     property: 'og:description',
     content: 'Lootusetust romantikust kirjanik Gil on veendunud, et ta oleks pidanud sündima 1920ndatel. Sõites puhkusele Pariisi, süveneb ta veendumus veelgi enam. Tema kallim Ines aga tunneb rõõmu tänasest päevast. Gili südaöised jalutuskäigud Pariisis muudavad linna ta jaoks järjest lähedasemaks ja kalli kaasa üha kaugemaks.'
   }],
+  convertToSharedObject: function(movie) {
+    var obj = {};
+    movie.forEach(function (item) {
+      obj[item.property] = item.content;
+    });
+    return obj;
+  },
   get: function (movie, propetry) {
     // console.log('MoviesShareOpenGraph, get movie property ', propetry);
     var result;

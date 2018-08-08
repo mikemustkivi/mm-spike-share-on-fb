@@ -20,7 +20,7 @@ var SharingHelper = {
       method: 'share_open_graph',
       action_type: 'og.shares',
       action_properties: JSON.stringify({
-        object: MoviesShareOpenGraph[title]
+        object: MoviesShareOpenGraph.convertToSharedObject(MoviesShareOpenGraph[title])
       })
     };
     setTimeout(function () {
