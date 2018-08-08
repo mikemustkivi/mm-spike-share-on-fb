@@ -20,7 +20,7 @@ var SharingHelper = {
     console.log('openGraphObj:', JSON.stringify(openGraphObj));
     sharedData = {
       method: 'share_open_graph',
-      action_type: 'video.wants_to_watch',
+      action_type: 'og.shares',
       action_properties: JSON.stringify({
         object: openGraphObj
       })
