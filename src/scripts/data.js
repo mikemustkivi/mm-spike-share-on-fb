@@ -11,9 +11,9 @@ var MoviesShareOpenGraph = {
   }, {
     property: 'og:image:heigth',
     content: '340'
-  // }, {
-  //   property: 'og:type',
-  //   content: 'video.movie'
+  }, {
+    property: 'og:type',
+    content: 'video.other'
   }, {
     property: 'og:title',
     content: 'Südaöö Pariisis'
