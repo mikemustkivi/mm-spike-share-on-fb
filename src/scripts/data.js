@@ -5,9 +5,9 @@ var MoviesShareOpenGraph = {
   }, {
     property: 'og:image',
     content: Config.hostUrl + '/dev/images/08a84ff4-06f9-48f6-9c75-41264a777188-poster.jpg'
-  }, {
-    property: 'og:type',
-    content: 'video.movie'
+  // }, {
+  //   property: 'og:type',
+  //   content: 'video.movie'
   }, {
     property: 'og:title',
     content: 'Südaöö Pariisis'
