@@ -10,17 +10,19 @@ var SharingHelper = {
     SharingHelper.shareOnFacebook({});
   },
   shareOnFacebook: function (event) {
-    var sharedData, title = event.target.dataset.title;
+    var sharedData, openGraphObj, title = event.target.dataset.title;
     console.log('share on facebook');
     if (!title || !MoviesShareOpenGraph[title]) {
       console.log('title not found, skipping fb sharing');
       return;
     }
+    openGraphObj = MoviesShareOpenGraph.convertToSharedObject(MoviesShareOpenGraph[title]);
+    console.log('openGraphObj:', JSON.stringify(openGraphObj));
     sharedData = {
       method: 'share_open_graph',
       action_type: 'og.shares',
       action_properties: JSON.stringify({
-        object: MoviesShareOpenGraph.convertToSharedObject(MoviesShareOpenGraph[title])
+        object: openGraphObj
       })
     };
     setTimeout(function () {
