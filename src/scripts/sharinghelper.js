@@ -9,20 +9,18 @@ var SharingHelper = {
     e.preventDefault();
     SharingHelper.shareOnFacebook({});
   },
-  shareOnFacebook: function (data) {
-    var sharedData;
+  shareOnFacebook: function (event) {
+    var sharedData, title = event.target.dataset.title;
     console.log('share on facebook');
+    if (!title || !MoviesShareOpenGraph[title]) {
+      console.log('title not found, skipping fb sharing');
+      return;
+    }
     sharedData = {
       method: 'share_open_graph',
       action_type: 'og.shares',
       action_properties: JSON.stringify({
-        object: {
-          'og:url': 'https://www.mikemustkivi.eu/dev/movies/1234.html', // your url to share
-          'og:title': 'Koerte saar (jagamisviis share_open_graph)',
-          'og:description': '"“Koerte saar” on lugu 12-aastasest Atari Kobayashist, kelle eestkostjaks on korrumpeerunud meer Kobayashi. Kui linnapea dekreediga küüditatakse kõik Megasaki City koerad tohutule prügimäele, kihutab Atari oma Junior-Turbo propellerlennukiga Prügisaarele, et päästa oma neljajalgne ihukaitsja Täpi. Koos uute krantsidest sõpradega asub Atari eepilisele teekonnale, millega määratakse terve Prefektuuri tulevik."',
-          'og:image': 'https://www.mikemustkivi.eu/dev/images/9fd2e62c-981c-4ec9-a2ed-7a52a39ada8a-poster.png',
-          'og:type': 'video.movie'
-        }
+        object: MoviesShareOpenGraph[title]
       })
     };
     setTimeout(function () {
