@@ -3,6 +3,7 @@ var SharingHelper = {
     console.log('registerEventHandlers');
 
     $('body').on('click', '.share.facebook', SharingHelper.shareOnFacebook);
+    $('body').on('click', '.share.facebook.with.meta', SharingHelper.shareOnFacebookBasedOnHeadMetaOgTags);
   },
   
   startSharing: function (e) {
